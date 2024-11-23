@@ -22,15 +22,6 @@ public class Subsystems {
       new RobotPreferences.BooleanValue("AprilTag", "Enable Pose Estimation", true);
 
   public final SwerveSubsystem drivetrain = new SwerveSubsystem();
-  public final IndexerSubsystem indexer = new IndexerSubsystem();
-  public final StatusLEDSubsystem statusLED = new StatusLEDSubsystem();
-  public final ArmSubsystem arm = new ArmSubsystem();
-  public final IntakeSubsystem intake = new IntakeSubsystem();
-  public final ShooterSubsystem shooter = new ShooterSubsystem(() -> drivetrain.getOrientation());
-
-  public final Optional<AprilTagSubsystem> aprilTag;
-  public final Optional<NoteVisionSubsystem> noteVision;
-  public final Optional<ClimberSubsystem> climber;
 
   public final Subsystem[] all;
 
@@ -38,22 +29,7 @@ public class Subsystems {
   public Subsystems() {
     ArrayList<Subsystem> all =
         new ArrayList<Subsystem>(
-            Arrays.asList(drivetrain, indexer, intake, statusLED, arm, shooter));
-
-    aprilTag = newOptionalSubsystem(AprilTagSubsystem.class, AprilTagSubsystem.ENABLED);
-    if (aprilTag.isPresent()) {
-      all.add(aprilTag.get());
-    }
-
-    noteVision = newOptionalSubsystem(NoteVisionSubsystem.class, NoteVisionSubsystem.ENABLED);
-    if (noteVision.isPresent()) {
-      all.add(noteVision.get());
-    }
-
-    climber = newOptionalSubsystem(ClimberSubsystem.class, ClimberSubsystem.ENABLED);
-    if (climber.isPresent()) {
-      all.add(climber.get());
-    }
+            Arrays.asList(drivetrain));
 
     this.all = all.toArray(Subsystem[]::new);
   }
@@ -90,17 +66,5 @@ public class Subsystems {
   }
 
   public void periodic() {
-    if (aprilTag.isPresent() && ENABLE_POSE_ESTIMATION.getValue()) {
-      AprilTagSubsystem aprilTag = this.aprilTag.get();
-      var visionEst = aprilTag.getEstimateGlobalPose();
-
-      visionEst.ifPresent(
-          (est) -> {
-            var estPose = est.estimatedPose.toPose2d();
-            var estStdDevs = aprilTag.getEstimationStdDevs(estPose);
-
-            drivetrain.addVisionMeasurement(estPose, est.timestampSeconds, estStdDevs);
-          });
-    }
   }
 }
