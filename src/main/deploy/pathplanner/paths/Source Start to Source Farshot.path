@@ -1,0 +1,87 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.7398459580634182,
+        "y": 4.365758146274563
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 1.5796876892481544,
+        "y": 3.270631724469556
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.54,
+        "y": 3.33
+      },
+      "prevControl": {
+        "x": 1.7205030438050701,
+        "y": 3.267988587427557
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "eventMarkers": [
+    {
+      "name": "Raise Arm",
+      "waypointRelativePos": 0.0,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "SetArmAngleSourceFarShot"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Set RPM",
+      "waypointRelativePos": 0.2,
+      "command": {
+        "type": "parallel",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "SetShooterRPMSourceFarShot"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 5.0,
+    "maxAcceleration": 5.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -40.0,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": "Source Sweep",
+  "previewStartingState": {
+    "rotation": -60.945395900922804,
+    "velocity": 0
+  },
+  "useDefaultConstraints": false
+}

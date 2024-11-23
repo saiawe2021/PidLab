@@ -1,0 +1,126 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 8.2,
+        "y": 0.791376682753368
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 6.179299732375018,
+        "y": 0.7913766827533683
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 4.61,
+        "y": 1.55
+      },
+      "prevControl": {
+        "x": 5.586046388377764,
+        "y": 1.1384393252247067
+      },
+      "nextControl": {
+        "x": 3.8083804747101895,
+        "y": 1.8880116730821161
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.54,
+        "y": 3.33
+      },
+      "prevControl": {
+        "x": 2.87050304380507,
+        "y": 2.913986896676084
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": -22.714294654285982,
+      "rotateFast": false
+    }
+  ],
+  "constraintZones": [],
+  "eventMarkers": [
+    {
+      "name": "Auto Center",
+      "waypointRelativePos": 0.1,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "AutoCenterNote"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Prepare To Shoot",
+      "waypointRelativePos": 1.2,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "SetShooterContinuous"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Auto Orienting",
+      "waypointRelativePos": 1.4,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "AutoOrientToSpeaker"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 5.0,
+    "maxAcceleration": 5.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -47.0,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": "Source Sweep",
+  "previewStartingState": {
+    "rotation": 0,
+    "velocity": 0
+  },
+  "useDefaultConstraints": false
+}

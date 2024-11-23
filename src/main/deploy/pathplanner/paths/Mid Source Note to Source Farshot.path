@@ -1,0 +1,103 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 8.21,
+        "y": 2.4
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 7.142261612762279,
+        "y": 1.963546726070418
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 4.614717422813849,
+        "y": 1.545770826905387
+      },
+      "prevControl": {
+        "x": 5.7427123505594295,
+        "y": 1.2951052874063693
+      },
+      "nextControl": {
+        "x": 3.6616525609164294,
+        "y": 1.7575630184381463
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.54,
+        "y": 3.33
+      },
+      "prevControl": {
+        "x": 2.880947441278974,
+        "y": 2.8408761143169796
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "eventMarkers": [
+    {
+      "name": "Auto Center",
+      "waypointRelativePos": 0,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "AutoCenterNote"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Prepare To Shoot",
+      "waypointRelativePos": 0.5,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "SetShooterContinuous"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 5.0,
+    "maxAcceleration": 5.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -45.744059202888714,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": "Source Sweep",
+  "previewStartingState": {
+    "rotation": 32.00538320808345,
+    "velocity": 0
+  },
+  "useDefaultConstraints": false
+}

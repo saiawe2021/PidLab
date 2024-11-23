@@ -1,0 +1,95 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 8.04,
+        "y": 5.84
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 7.384081007782419,
+        "y": 6.5245890871378425
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 4.35,
+        "y": 5.55
+      },
+      "prevControl": {
+        "x": 5.11508211628523,
+        "y": 7.216000766521106
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.6,
+      "rotationDegrees": 0.0,
+      "rotateFast": false
+    }
+  ],
+  "constraintZones": [],
+  "eventMarkers": [
+    {
+      "name": "Prepare to Shoot",
+      "waypointRelativePos": 0.15,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "parallel",
+              "data": {
+                "commands": [
+                  {
+                    "type": "named",
+                    "data": {
+                      "name": "AutoCenterNote"
+                    }
+                  },
+                  {
+                    "type": "named",
+                    "data": {
+                      "name": "SetShooterRPMAmpFarShot"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "SetArmAngleAmpFarShot"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 1.3565985383853918,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": "Amp Sweep",
+  "previewStartingState": {
+    "rotation": -19.88433097773064,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}

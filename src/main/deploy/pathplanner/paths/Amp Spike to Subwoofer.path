@@ -1,0 +1,76 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 2.7,
+        "y": 6.93
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.4813766588848765,
+        "y": 6.516122253607076
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.36,
+        "y": 5.6
+      },
+      "prevControl": {
+        "x": 1.8983968489387892,
+        "y": 6.053262359505897
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "eventMarkers": [
+    {
+      "name": "Auto-Centering",
+      "waypointRelativePos": 0.0,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "AutoCenterNote"
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "SetSubwooferRPMAndWait"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": "Spike Sweep",
+  "previewStartingState": {
+    "rotation": 16.254013682931564,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}
