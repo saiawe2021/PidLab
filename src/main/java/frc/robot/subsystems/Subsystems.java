@@ -27,9 +27,7 @@ public class Subsystems {
 
   /** Initializes all of the robot subsystems. */
   public Subsystems() {
-    ArrayList<Subsystem> all =
-        new ArrayList<Subsystem>(
-            Arrays.asList(drivetrain));
+    ArrayList<Subsystem> all = new ArrayList<Subsystem>(Arrays.asList(drivetrain));
 
     this.all = all.toArray(Subsystem[]::new);
   }
@@ -65,6 +63,5 @@ public class Subsystems {
     }
   }
 
-  public void periodic() {
-  }
+  public void periodic() {}
 }

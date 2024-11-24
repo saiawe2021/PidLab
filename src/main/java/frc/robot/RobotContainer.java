@@ -6,26 +6,16 @@
  */
 package frc.robot;
 
-import static frc.robot.Constants.ColorConstants.GREEN;
-import static frc.robot.Constants.ColorConstants.PINK;
-import static frc.robot.Constants.ColorConstants.RED;
-
-import com.nrg948.preferences.RobotPreferences;
 import com.nrg948.preferences.RobotPreferencesLayout;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.shuffleboard.BuiltInLayouts;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
-import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardLayout;
-import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.RobotConstants.OperatorConstants;
 import frc.robot.commands.DriveCommands;
+import frc.robot.commands.DriveStraightPID;
 import frc.robot.subsystems.Subsystems;
-import java.util.Map;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -37,6 +27,8 @@ import java.util.Map;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final Subsystems subsystems = new Subsystems();
+  // !! ADD TO LAB
+  private final double distance = 3.0;
 
   // Robot autonomous must be initialized after the subsystems
   private final RobotAutonomous autonomous = new RobotAutonomous(subsystems);
@@ -51,7 +43,10 @@ public class RobotContainer {
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+    // !! ADD TO LAB
+    subsystems.drivetrain.setDefaultCommand(new DriveStraightPID(distance));
     DriverStation.silenceJoystickConnectionWarning(true);
+
     // subsystems.arm.setDefaultCommand(new ManualArmController(subsystems, operatorController));
     // subsystems.intake.setDefaultCommand(new IntakeUsingController(subsystems,
     // operatorController));
@@ -113,5 +108,6 @@ public class RobotContainer {
   }
 
   public void initShuffleboard() {
+    subsystems.drivetrain.addShuffleboardTab();
   }
 }
