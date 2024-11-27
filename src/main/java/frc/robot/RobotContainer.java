@@ -44,7 +44,7 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // !! ADD TO LAB
-    subsystems.drivetrain.setDefaultCommand(new DriveStraightPID(distance));
+    subsystems.drivetrain.setDefaultCommand(new DriveStraightPID(distance, subsystems));
     DriverStation.silenceJoystickConnectionWarning(true);
 
     // subsystems.arm.setDefaultCommand(new ManualArmController(subsystems, operatorController));

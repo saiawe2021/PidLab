@@ -54,7 +54,6 @@ import frc.robot.drive.SwerveDrive;
 import frc.robot.drive.SwerveModule;
 import frc.robot.parameters.SwerveAngleEncoder;
 import frc.robot.parameters.SwerveDriveParameters;
-import frc.robot.parameters.SwerveMotors;
 import frc.robot.util.SwerveModuleVelocities;
 import frc.robot.util.SwerveModuleVoltages;
 import java.util.Map;
@@ -87,29 +86,17 @@ public class SwerveSubsystem extends SubsystemBase {
   private static final byte NAVX_UPDATE_FREQUENCY_HZ = 50;
 
   // 4 pairs of motors for drive & steering.
-  private final TalonFX frontLeftDriveMotor =
-      new TalonFX(PARAMETERS.getValue().getMotorId(SwerveMotors.FrontLeftDrive));
-  private final CANSparkMax frontLeftSteeringMotor =
-      new CANSparkMax(
-          PARAMETERS.getValue().getMotorId(SwerveMotors.FrontLeftSteering), MotorType.kBrushless);
+  private final TalonFX frontLeftDriveMotor = new TalonFX(8);
+  private final CANSparkMax frontLeftSteeringMotor = new CANSparkMax(9, MotorType.kBrushless);
 
-  private final TalonFX frontRightDriveMotor =
-      new TalonFX(PARAMETERS.getValue().getMotorId(SwerveMotors.FrontRightDrive));
-  private final CANSparkMax frontRightSteeringMotor =
-      new CANSparkMax(
-          PARAMETERS.getValue().getMotorId(SwerveMotors.FrontRightSteering), MotorType.kBrushless);
+  private final TalonFX frontRightDriveMotor = new TalonFX(19);
+  private final CANSparkMax frontRightSteeringMotor = new CANSparkMax(14, MotorType.kBrushless);
 
-  private final TalonFX backLeftDriveMotor =
-      new TalonFX(PARAMETERS.getValue().getMotorId(SwerveMotors.BackLeftDrive));
-  private final CANSparkMax backLeftSteeringMotor =
-      new CANSparkMax(
-          PARAMETERS.getValue().getMotorId(SwerveMotors.BackLeftSteering), MotorType.kBrushless);
+  private final TalonFX backLeftDriveMotor = new TalonFX(6);
+  private final CANSparkMax backLeftSteeringMotor = new CANSparkMax(7, MotorType.kBrushless);
 
-  private final TalonFX backRightDriveMotor =
-      new TalonFX(PARAMETERS.getValue().getMotorId(SwerveMotors.BackRightDrive));
-  private final CANSparkMax backRightSteeringMotor =
-      new CANSparkMax(
-          PARAMETERS.getValue().getMotorId(SwerveMotors.BackRightSteering), MotorType.kBrushless);
+  private final TalonFX backRightDriveMotor = new TalonFX(13);
+  private final CANSparkMax backRightSteeringMotor = new CANSparkMax(18, MotorType.kBrushless);
 
   // 4 CANcoders for the steering angle.
   private final CANcoder frontLeftAngle =
