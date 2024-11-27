@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.RobotConstants.OperatorConstants;
 import frc.robot.commands.DriveCommands;
-import frc.robot.commands.DriveStraightPID;
 import frc.robot.subsystems.Subsystems;
 
 /**
@@ -28,7 +27,6 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final Subsystems subsystems = new Subsystems();
   // !! ADD TO LAB
-  private final double distance = 3.0;
 
   // Robot autonomous must be initialized after the subsystems
   private final RobotAutonomous autonomous = new RobotAutonomous(subsystems);
@@ -44,7 +42,6 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // !! ADD TO LAB
-    subsystems.drivetrain.setDefaultCommand(new DriveStraightPID(distance, subsystems));
     DriverStation.silenceJoystickConnectionWarning(true);
 
     // subsystems.arm.setDefaultCommand(new ManualArmController(subsystems, operatorController));
