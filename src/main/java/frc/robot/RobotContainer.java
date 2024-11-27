@@ -27,7 +27,6 @@ import frc.robot.subsystems.Subsystems;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final Subsystems subsystems = new Subsystems();
-  // !! ADD TO LAB
   private final double distance = 3.0;
 
   // Robot autonomous must be initialized after the subsystems
