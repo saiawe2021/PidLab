@@ -25,9 +25,9 @@ public class DriveStraightPID extends Command {
 
   /** Creates a new DriveStraightPID. */
   public DriveStraightPID(double goalDistance, Subsystems subsystems) {
-    swerve = subsystems.drivetrain;
-    distance = goalDistance;
-    pid = new PIDController(kP, kI, kD);
+    this.swerve = subsystems.drivetrain;
+    this.distance = goalDistance;
+    this.pid = new PIDController(kP, kI, kD);
     addRequirements(swerve);
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -38,14 +38,20 @@ public class DriveStraightPID extends Command {
     swerve.resetOrientation(new Rotation2d());
     swerve.resetPosition(new Pose2d());
     pid.setSetpoint(distance);
+    pid.setTolerance(0.05, 0.02); // 5 cm position, 2 cm/s velocity tolerance
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    currentDistance = swerve.getPosition().getX();
+    currentDistance = swerve.getPosition().getX(); // Assuming X-axis movement
     speed = pid.calculate(currentDistance);
-    swerve.drive(speed, 0, 0, false);
+    // Apply a deadband to avoid micro-movements
+    if (Math.abs(speed) < 0.05) {
+       speed = 0;
+      }
+      // Drive straight
+      swerve.drive(speed, 0, 0, false);
     ;
   }
 
