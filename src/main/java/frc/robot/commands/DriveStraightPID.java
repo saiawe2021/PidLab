@@ -19,7 +19,7 @@ public class DriveStraightPID extends Command {
   private SwerveSubsystem swerve;
   private double currentDistance;
   private double speed;
-  private double kP = 0.1;
+  private double kP = 1.0;
   private double kI = 0.0;
   private double kD = 0.0; // CHANGE THESE
 
@@ -48,10 +48,10 @@ public class DriveStraightPID extends Command {
     speed = pid.calculate(currentDistance);
     // Apply a deadband to avoid micro-movements
     if (Math.abs(speed) < 0.05) {
-       speed = 0;
-      }
-      // Drive straight
-      swerve.drive(speed, 0, 0, false);
+      speed = 0;
+    }
+    // Drive straight
+    swerve.drive(speed, 0, 0, false);
     ;
   }
 

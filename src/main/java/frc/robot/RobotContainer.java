@@ -9,7 +9,10 @@ package frc.robot;
 import com.nrg948.preferences.RobotPreferencesLayout;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.RobotConstants.OperatorConstants;
@@ -43,7 +46,7 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // !! ADD TO LAB
-    subsystems.drivetrain.setDefaultCommand(new DriveStraightPID(distance, subsystems));
+
     DriverStation.silenceJoystickConnectionWarning(true);
 
     // subsystems.arm.setDefaultCommand(new ManualArmController(subsystems, operatorController));
@@ -100,6 +103,7 @@ public class RobotContainer {
   public void teleopInit() {
     subsystems.drivetrain.setBrakeMode(true);
     subsystems.drivetrain.disableAutoOrientation();
+    CommandScheduler.getInstance().schedule(new DriveStraightPID(distance, subsystems));
   }
 
   public void periodic() {
@@ -108,5 +112,8 @@ public class RobotContainer {
 
   public void initShuffleboard() {
     subsystems.drivetrain.addShuffleboardTab();
+    ShuffleboardTab tuning = Shuffleboard.getTab("Tuning");
+    tuning.addNumber("CurrentDistance", () -> subsystems.drivetrain.getPosition().getX());
+    tuning.addNumber("Goal Distance", () -> distance);
   }
 }
