@@ -1,4 +1,5 @@
-# NRGRobot 2024
+# PID LAB
+[WORD DOC LINK](https://docs.google.com/document/d/1sekS8s7ivJEcUFxsi0HcLOmJJJ3xK8oRMlYougYcqK4/edit?usp=sharing)
 
 The robot code of [FRC Team 948 - Newport Robotics Group](https://www.nrg948.com) for FIRST Robotics Competition 2024 [CRESCENDO presented by Haas](https://youtu.be/9keeDyFxzY4?si=yItH8LBi_33p9NN0) game.
 
